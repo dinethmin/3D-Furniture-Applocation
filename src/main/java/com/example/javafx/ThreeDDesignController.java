@@ -23,7 +23,13 @@ public class ThreeDDesignController {
     @FXML
     public ImageView sofaIcon;
     @FXML
+    public ImageView sofaIcon1;
+    @FXML
     public ImageView tableIcon;
+    @FXML
+    public ImageView chairIcon;
+    @FXML
+    public ImageView Chair2;
     @FXML
     private AnchorPane designPane;
     @FXML
@@ -40,6 +46,9 @@ public class ThreeDDesignController {
         // Add event listeners to the furniture icons in VBox
         sofaIcon.setOnMouseClicked(event -> addFurnitureToRoom("Sofa"));
         tableIcon.setOnMouseClicked(event -> addFurnitureToRoom("Table"));
+        chairIcon.setOnMouseClicked(event -> addFurnitureToRoom("Chair"));
+        Chair2.setOnMouseClicked(event -> addFurnitureToRoom("Chair1"));
+        sofaIcon1.setOnMouseClicked(event -> addFurnitureToRoom("Sofa1"));
         roomGroup = new Group();
         initializeRoom();
     }
@@ -104,6 +113,18 @@ public class ThreeDDesignController {
             case "Table":
                 modelPath = "/models/Wooden_Table.obj";
                 texturePath = "/textures/wood_texture.jpg";
+                break;
+            case "Chair":
+                modelPath = "/models/old_chair.obj";
+                texturePath = "/textures/old_chair_texture.png";
+                break;
+            case "Chair1":
+                modelPath = "/models/ArchWave_Chair.obj";
+                texturePath = "/textures/ArchWave_Chair_texture.png";
+                break;
+            case "Sofa1":
+                modelPath = "/models/Sofa.obj";
+                texturePath = "/textures/Sofa2_texture.png";
                 break;
             default:
                 modelPath = null;
@@ -438,16 +459,16 @@ public class ThreeDDesignController {
         // Add keyboard controls for camera movement
         subScene.setOnKeyPressed(event -> {
             switch (event.getCode()) {
-                case W:
+                case NUMPAD8:
                     camera.setTranslateZ(camera.getTranslateZ() + 10); // Move forward
                     break;
-                case S:
+                case NUMPAD2:
                     camera.setTranslateZ(camera.getTranslateZ() - 10); // Move backward
                     break;
-                case A:
+                case NUMPAD4:
                     camera.setTranslateX(camera.getTranslateX() - 10); // Move left
                     break;
-                case D:
+                case NUMPAD6:
                     camera.setTranslateX(camera.getTranslateX() + 10); // Move right
                     break;
                 case UP:

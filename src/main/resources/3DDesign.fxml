@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,31 +11,61 @@
 
 <BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.ThreeDDesignController">
     <center>
-        <AnchorPane fx:id="designPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="900.0" BorderPane.alignment="BOTTOM_CENTER">
+        <AnchorPane fx:id="designPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" BorderPane.alignment="BOTTOM_CENTER">
 
         </AnchorPane>
     </center>
     <top>
-        <VBox prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-            <AnchorPane prefHeight="150.0" prefWidth="900.0">
-                <Text layoutX="32.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Furniture" textAlignment="JUSTIFY" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
-                    <font>
-                        <Font name="System Bold" size="28.0" />
-                    </font>
-                </Text>
-                <VBox fx:id="furnitureVBox" layoutX="221.0" layoutY="30.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="359.0" spacing="10" style="-fx-background-color: gray;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="20.0">
-                    <ImageView fx:id="sofaIcon" fitHeight="50.0" fitWidth="50.0">
+        <VBox prefHeight="110.0" prefWidth="900.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="700.0" style="-fx-background-color: black;">
+            <children>
+                    <ImageView fx:id="sofaIcon" fitHeight="65.0" fitWidth="120.0" layoutX="14.0" layoutY="43.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">
                         <image>
-                            <Image url="@images/sofa_icon.png" />
+                            <Image url="@images/1.jpg" />
                         </image>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
                     </ImageView>
-                    <ImageView fx:id="tableIcon" fitHeight="50.0" fitWidth="50.0">
+                    <ImageView fx:id="tableIcon" fitHeight="65.0" fitWidth="60.0" layoutX="266.0" layoutY="43.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="266.0" AnchorPane.topAnchor="35.0">
                         <image>
-                            <Image url="@images/table_icon.png" />
+                            <Image url="@images/2.jpg" />
                         </image>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
                     </ImageView>
-                </VBox>
-            </AnchorPane>
+               <ImageView fx:id="chairIcon" fitHeight="65.0" fitWidth="50.0" layoutX="354.0" layoutY="43.0" AnchorPane.topAnchor="35.0">
+                  <image>
+                     <Image url="@images/3.jpg" />
+                  </image>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </ImageView>
+               <ImageView fx:id="Chair2" fitHeight="65.0" fitWidth="60.0" layoutX="420.0" layoutY="43.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="35.0">
+                  <image>
+                     <Image url="@images/4.jpg" />
+                  </image>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </ImageView>
+               <ImageView fx:id="sofaIcon1" fitHeight="65.0" fitWidth="120.0" layoutX="131.0" layoutY="43.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="131.0" AnchorPane.topAnchor="35.0">
+                  <image>
+                     <Image url="@images/5.jpg" />
+                  </image>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </ImageView>
+                   <Text fill="WHITE" layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Furniture" textAlignment="JUSTIFY" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                       <font>
+                           <Font name="System Bold" size="28.0" />
+                       </font>
+                   </Text>
+            </children>
+         </AnchorPane>
         </VBox>
     </top>
 </BorderPane>
