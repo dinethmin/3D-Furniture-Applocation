@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.DesignController">
+
+    <!-- Left: Room Setup Controls -->
+    <left>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="226.0" spacing="10">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="226.0" style="-fx-background-color: white;">
+                <Label layoutX="36.0" layoutY="41.0" style="-fx-font-weight: bold;" text="Room Setup">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="18.0" layoutY="127.0" text="Room Shape:" AnchorPane.leftAnchor="18.0" />
+                <ComboBox fx:id="shapeComboBox" layoutX="18.0" layoutY="154.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="192.0" AnchorPane.leftAnchor="18.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Rectangle" />
+                            <String fx:value="L-Shape" />
+                            <String fx:value="Square" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label fx:id="t1" layoutX="18.0" layoutY="227.0" text="Width (px):" AnchorPane.leftAnchor="18.0" />
+                <TextField fx:id="widthField" layoutX="18.0" layoutY="254.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#handleWallSizeAction" prefHeight="25.0" prefWidth="90.0" promptText="e.g., 600" AnchorPane.leftAnchor="18.0" />
+
+                <Label fx:id="t3" layoutX="18.0" layoutY="289.0" text="Height (px):" AnchorPane.leftAnchor="18.0" />
+                <TextField fx:id="heightField" layoutX="18.0" layoutY="316.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#handleWallSizeAction" prefHeight="25.0" prefWidth="90.0" promptText="e.g., 400" AnchorPane.leftAnchor="18.0" />
+                <Label fx:id="t2" layoutX="122.0" layoutY="228.0" text="Width (px):" />
+                <TextField fx:id="widthField1" layoutX="120.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#handleWallSizeAction" prefHeight="25.0" prefWidth="90.0" promptText="e.g., 600" />
+                <Label fx:id="t4" layoutX="120.0" layoutY="289.0" text="Height (px):" />
+                <TextField fx:id="heightField1" layoutX="120.0" layoutY="316.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#handleWallSizeAction" prefHeight="25.0" prefWidth="90.0" promptText="e.g., 400" />
+
+
+                <Label layoutX="18.0" layoutY="441.0" text="Wall Color:" AnchorPane.leftAnchor="18.0" />
+                <ColorPicker fx:id="colorPicker" layoutX="18.0" layoutY="468.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="192.0" AnchorPane.leftAnchor="18.0" />
+                <Label fx:id="t5" layoutX="17.0" layoutY="356.0" text="Height (px):" AnchorPane.leftAnchor="17.0" />
+                <TextField fx:id="widthField2" layoutX="17.0" layoutY="384.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="e.g., 400" AnchorPane.leftAnchor="17.0" />
+                <Label fx:id="t6" layoutX="120.0" layoutY="356.0" text="Height (px):" />
+                <TextField fx:id="heightField2" layoutX="120.0" layoutY="384.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="e.g., 400" />
+                
+
+                <Button layoutX="13.0" layoutY="656.0" onAction="#viewIn3D" prefHeight="32.0" prefWidth="200.0" text="3D View in new window" AnchorPane.leftAnchor="13.0" />
+   
+   
+                <Button layoutX="13.0" layoutY="579.0" onAction="#applyRoomSettings" prefHeight="32.0" prefWidth="200.0" text="Apply Settings" AnchorPane.leftAnchor="13.0" />
+            </AnchorPane>
+        </VBox>
+    </left>
+   <center>
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="774.0">
+            <Canvas fx:id="designCanvas" height="750.0" layoutX="7.0" layoutY="166.0" nodeOrientation="INHERIT" width="774.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Canvas>
+        </AnchorPane>
+   </center>
+</BorderPane>
