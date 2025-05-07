@@ -1,9 +1,12 @@
 package com.example.javafx;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.*;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -13,9 +16,13 @@ import javafx.scene.shape.Box;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape3D;
 import javafx.scene.transform.Rotate;
+import javafx.stage.FileChooser;
 import org.fxyz3d.importers.obj.ObjImporter;
 import org.fxyz3d.importers.Model3D;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -467,10 +474,10 @@ public class ThreeDDesignController {
         subScene.setOnKeyPressed(event -> {
             switch (event.getCode()) {
                 case NUMPAD8:
-                    camera.setTranslateZ(camera.getTranslateZ() + 10); // Move forward
+                    camera.setTranslateY(camera.getTranslateY() - 10); // Move up
                     break;
                 case NUMPAD2:
-                    camera.setTranslateZ(camera.getTranslateZ() - 10); // Move backward
+                    camera.setTranslateY(camera.getTranslateY() + 10); // Move down
                     break;
                 case NUMPAD4:
                     camera.setTranslateX(camera.getTranslateX() - 10); // Move left
@@ -478,17 +485,57 @@ public class ThreeDDesignController {
                 case NUMPAD6:
                     camera.setTranslateX(camera.getTranslateX() + 10); // Move right
                     break;
-                case UP:
-                    camera.setTranslateY(camera.getTranslateY() - 10); // Move up
-                    break;
-                case DOWN:
-                    camera.setTranslateY(camera.getTranslateY() + 10); // Move down
-                    break;
             }
         });
 
         designPane.getChildren().add(subScene);
         subScene.setFocusTraversable(true);
         subScene.requestFocus();
+    }
+
+    @FXML
+    private void saveDesignAsImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Design as Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PNG Files", "*.png"),
+                new FileChooser.ExtensionFilter("JPEG Files", "*.jpg", "*.jpeg")
+        );
+
+        File file = fileChooser.showSaveDialog(designPane.getScene().getWindow());
+        if (file != null) {
+            try {
+                // Get the SubScene from your designPane
+                SubScene subScene = (SubScene) designPane.getChildren().get(0);
+
+                // Create a snapshot of the SubScene
+                WritableImage image = subScene.snapshot(null, null);
+
+                // Determine file format from extension
+                String extension = file.getName().substring(file.getName().lastIndexOf('.') + 1).toLowerCase();
+
+                // Save the image
+                switch (extension) {
+                    case "png":
+                        ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+                        break;
+                    case "jpg":
+                    case "jpeg":
+                        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+                        BufferedImage rgbImage = new BufferedImage(
+                                bufferedImage.getWidth(),
+                                bufferedImage.getHeight(),
+                                BufferedImage.TYPE_INT_RGB
+                        );
+                        rgbImage.createGraphics().drawImage(bufferedImage, 0, 0, null);
+                        ImageIO.write(rgbImage, "jpg", file);
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported image format");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
