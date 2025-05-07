@@ -230,16 +230,16 @@ public class ThreeDDesignController {
             double scaleChange = 0;
 
             switch (event.getCode()) {
-                case UP:
+                case NUMPAD8:
                     deltaZ = -gridSize;
                     break;
-                case DOWN:
+                case NUMPAD2:
                     deltaZ = gridSize;
                     break;
-                case LEFT:
+                case NUMPAD4:
                     deltaX = -gridSize;
                     break;
-                case RIGHT:
+                case NUMPAD6:
                     deltaX = gridSize;
                     break;
                 case W:
