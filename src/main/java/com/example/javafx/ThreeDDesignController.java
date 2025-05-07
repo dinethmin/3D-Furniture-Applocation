@@ -36,8 +36,6 @@ public class ThreeDDesignController {
     private Group furnitureGroup = new Group();
     private List<Box> furnitureList = new ArrayList<>();
 
-
-
     public void initialize() {
         // Add event listeners to the furniture icons in VBox
         sofaIcon.setOnMouseClicked(event -> addFurnitureToRoom("Sofa"));
