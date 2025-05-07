@@ -19,7 +19,7 @@
         <VBox prefHeight="110.0" prefWidth="900.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="700.0" style="-fx-background-color: black;">
             <children>
-                    <ImageView fx:id="sofaIcon" fitHeight="65.0" fitWidth="120.0" layoutX="14.0" layoutY="43.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0">
+                    <ImageView fx:id="sofaIcon" fitHeight="65.0" fitWidth="120.0" layoutX="14.0" layoutY="43.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="35.0">
                         <image>
                             <Image url="@images/1.jpg" />
                         </image>
@@ -51,7 +51,7 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </ImageView>
-               <ImageView fx:id="sofaIcon1" fitHeight="65.0" fitWidth="120.0" layoutX="131.0" layoutY="43.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="131.0" AnchorPane.topAnchor="35.0">
+               <ImageView fx:id="sofaIcon1" fitHeight="65.0" fitWidth="120.0" layoutX="131.0" layoutY="43.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="35.0">
                   <image>
                      <Image url="@images/5.jpg" />
                   </image>
@@ -59,7 +59,7 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </ImageView>
-                   <Text fill="WHITE" layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Furniture" textAlignment="JUSTIFY" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                   <Text fill="WHITE" layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Furniture" textAlignment="JUSTIFY" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
                        <font>
                            <Font name="System Bold" size="28.0" />
                        </font>

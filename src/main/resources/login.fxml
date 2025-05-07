@@ -4,11 +4,37 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.LoginController">
-    <Label text="Furniture Design Login" />
-    <TextField fx:id="usernameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="450.0" promptText="Username" />
-    <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="450.0" promptText="Password" />
-    <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleLogin" prefHeight="32.0" prefWidth="234.0" text="Login" textAlignment="JUSTIFY" />
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="700.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.LoginController">
+   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="700.0">
+      <children>
+         <ImageView fitHeight="500.0" fitWidth="700.0" layoutY="46.0" nodeOrientation="INHERIT" opacity="0.7" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+               <Image url="@images/background.jpg" />
+            </image>
+         </ImageView>
+          <Label layoutX="112.0" layoutY="110.0" text="Furniture Design Login">
+            <font>
+               <Font name="Monospaced Bold" size="36.0" />
+            </font>
+         </Label>
+          <TextField fx:id="usernameField" layoutX="150.0" layoutY="185.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Username" style="-fx-background-color: gray;">
+            <font>
+               <Font name="Monotype Corsiva" size="18.0" />
+            </font></TextField>
+          <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Password" style="-fx-background-color: gray;">
+            <font>
+               <Font name="Monotype Corsiva" size="18.0" />
+            </font></PasswordField>
+          <Button layoutX="233.0" layoutY="279.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleLogin" prefHeight="32.0" prefWidth="234.0" style="-fx-background-color: #5abbf1;" text="Login" textAlignment="JUSTIFY">
+            <font>
+               <Font name="Mongolian Baiti" size="18.0" />
+            </font></Button>
+      </children>
+   </AnchorPane>
 </VBox>

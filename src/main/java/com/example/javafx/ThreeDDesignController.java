@@ -352,7 +352,7 @@ public class ThreeDDesignController {
         subScene.widthProperty().bind(designPane.widthProperty());
         subScene.heightProperty().bind(designPane.heightProperty());
 
-        subScene.setFill(Color.LIGHTGRAY);
+        subScene.setFill(Color.WHITE);
         subScene.setCamera(camera);
 
         // Add textures
