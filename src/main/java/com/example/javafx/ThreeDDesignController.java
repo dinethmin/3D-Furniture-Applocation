@@ -31,6 +31,8 @@ public class ThreeDDesignController {
     @FXML
     public ImageView Chair2;
     @FXML
+    public ImageView chairIcon3;
+    @FXML
     private AnchorPane designPane;
     @FXML
     private VBox furnitureVBox;
@@ -49,6 +51,7 @@ public class ThreeDDesignController {
         chairIcon.setOnMouseClicked(event -> addFurnitureToRoom("Chair"));
         Chair2.setOnMouseClicked(event -> addFurnitureToRoom("Chair1"));
         sofaIcon1.setOnMouseClicked(event -> addFurnitureToRoom("Sofa1"));
+        chairIcon3.setOnMouseClicked(event -> addFurnitureToRoom("Chair3"));
         roomGroup = new Group();
         initializeRoom();
     }
@@ -125,6 +128,10 @@ public class ThreeDDesignController {
             case "Sofa1":
                 modelPath = "/models/Sofa.obj";
                 texturePath = "/textures/Sofa2_texture.png";
+                break;
+            case "Chair3":
+                modelPath = "/models/Chair_textile.obj";
+                texturePath = "/textures/chair3_texture.JPG";
                 break;
             default:
                 modelPath = null;
