@@ -258,8 +258,6 @@ public class DesignController {
                 }
             }
         }
-
-
     }
 
     private void showAlert() {

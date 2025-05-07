@@ -52,7 +52,6 @@ public class ThreeDDesignController {
     private List<Box> furnitureList = new ArrayList<>();
 
     public void initialize() {
-        // Add event listeners to the furniture icons in VBox
         sofaIcon.setOnMouseClicked(event -> addFurnitureToRoom("Sofa"));
         tableIcon.setOnMouseClicked(event -> addFurnitureToRoom("Table"));
         chairIcon.setOnMouseClicked(event -> addFurnitureToRoom("Chair"));
@@ -100,9 +99,6 @@ public class ThreeDDesignController {
         try {
             Image textureImage = new Image(getClass().getResourceAsStream(texturePath));
             material.setDiffuseMap(textureImage);
-            // Add other texture maps if available
-            // material.setSpecularMap(...);
-            // material.setBumpMap(...);
         } catch (Exception e) {
             System.err.println("Error loading texture: " + e.getMessage());
             material.setDiffuseColor(Color.TAN); // Fallback color
@@ -343,9 +339,9 @@ public class ThreeDDesignController {
         create3DGrid();  // Create the 3D grid on the floor
 
         // Create furniture and enable movement
-        Box furniture = new Box(50, 50, 50);  // Example furniture size
+        Box furniture = new Box(50, 50, 50);
         furniture.setTranslateX(100);
-        furniture.setTranslateY(50);  // Set the Y position to lift the furniture slightly off the ground
+        furniture.setTranslateY(50);
         furniture.setTranslateZ(100);
         roomGroup.getChildren().add(furniture);
 
