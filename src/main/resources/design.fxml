@@ -18,8 +18,8 @@
 
     <!-- Left: Room Setup Controls -->
     <left>
-        <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="226.0" spacing="10" BorderPane.alignment="CENTER">
-            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="226.0" style="-fx-background-color: gray;">
+        <VBox prefHeight="600.0" prefWidth="226.0" spacing="10" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="600.0" prefWidth="226.0" style="-fx-background-color: gray;">
                 <Label layoutX="36.0" layoutY="36.0" style="-fx-font-weight: bold;" text="Room Setup">
                     <font>
                         <Font size="24.0" />

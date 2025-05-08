@@ -36,14 +36,14 @@ public class LoginController {
             System.out.println("Login Successful! Switching to Design Screen.");
 
             // Get the current stage (login screen) and load the design screen
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/design.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cart.fxml"));
             Parent root = loader.load();
 
             // Get the controller of the design screen
-            DesignController designController = loader.getController();
+            CartController CartController = loader.getController();
 
             // Pass the current stage to the design screen's controller
-            designController.setPrimaryStage(primaryStage);
+            CartController.setPrimaryStage(primaryStage);
 
             // Set the new scene and show it
             Scene scene = new Scene(root);
@@ -53,4 +53,5 @@ public class LoginController {
             System.out.println("Invalid credentials!");
         }
     }
+
 }
