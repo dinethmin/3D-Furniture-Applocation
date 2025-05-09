@@ -15,11 +15,10 @@ public class LoginController {
 
     @FXML
     private TextField usernameField;
-
     @FXML
     private PasswordField passwordField;
 
-    private Stage primaryStage;  // Add this field to store the primary stage
+    private Stage primaryStage;
 
     // Setter method to set the primaryStage
     public void setPrimaryStage(Stage primaryStage) {
@@ -31,18 +30,18 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        // Check credentials (Replace with real authentication)
+        // Check credentials
         if ("admin".equals(username) && "1234".equals(password)) {
             System.out.println("Login Successful! Switching to Design Screen.");
 
-            // Get the current stage (login screen) and load the design screen
+            // load the Cart screen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/cart.fxml"));
             Parent root = loader.load();
 
-            // Get the controller of the design screen
+            // Get the controller of the Cart screen
             CartController CartController = loader.getController();
 
-            // Pass the current stage to the design screen's controller
+            // Pass the current stage to the Cart screen's controller
             CartController.setPrimaryStage(primaryStage);
 
             // Set the new scene and show it

@@ -68,7 +68,7 @@ public class ThreeDDesignController {
             Model3D model = importer.load(getClass().getResource(modelPath));
             Node modelNode = model.getRoot();
 
-            // Apply texture to all Shape3D children in the group
+            // Apply texture to Shape3D
             if (modelNode instanceof Group) {
                 applyTextureToGroup((Group) modelNode, texturePath);
             } else if (modelNode instanceof Shape3D) {
@@ -107,7 +107,7 @@ public class ThreeDDesignController {
     }
 
     private void addFurnitureToRoom(String furnitureType) {
-        // Define model and texture paths for each furniture type
+        //model and texture paths for each furniture type
         String modelPath;
         String texturePath;
 
@@ -173,43 +173,43 @@ public class ThreeDDesignController {
     private void create3DGrid() {
         double gridSize = 50;  // Define grid size
 
-        // Create horizontal grid lines (on the Z-axis)
+        // Create horizontal grid lines
         for (double z = -300; z <= 300; z += gridSize) {
             Line line = new Line();
             line.setStartX(-300);
             line.setStartY(0);
             line.setEndX(300);
             line.setEndY(0);
-            line.setTranslateZ(z);  // Move the line along the Z-axis
+            line.setTranslateZ(z);
             line.setStroke(Color.LIGHTGRAY);
             line.setStrokeWidth(0.5);
             roomGroup.getChildren().add(line);
         }
 
-        // Create vertical grid lines (on the X-axis)
+        // Create vertical grid lines
         for (double x = -300; x <= 300; x += gridSize) {
             Line line = new Line();
             line.setStartX(0);
             line.setStartY(-300);
             line.setEndX(0);
             line.setEndY(300);
-            line.setTranslateX(x);  // Move the line along the X-axis
+            line.setTranslateX(x);
             line.setStroke(Color.LIGHTGRAY);
             line.setStrokeWidth(0.5);
             roomGroup.getChildren().add(line);
         }
     }
 
-    private Node selectedFurniture; // Change from Box to Node
+    private Node selectedFurniture;
 
     private void enable3DMovement(Node furniture) {
         selectedFurniture = furniture;
 
-        final double gridSize = 5;  // Define grid size
+        final double gridSize = 5;  //grid size
         final double rotationStep = 5.0; // Degrees to rotate per key press
         final double scaleStep = 0.1; // Scale adjustment step
 
-        // Initialize rotation transforms if they don't exist
+        // Initialize rotation transforms
         if (selectedFurniture.getTransforms().stream().noneMatch(t -> t instanceof Rotate && ((Rotate)t).getAxis() == Rotate.X_AXIS)) {
             Rotate xRotate = new Rotate(0, Rotate.X_AXIS);
             Rotate yRotate = new Rotate(0, Rotate.Y_AXIS);
@@ -334,7 +334,6 @@ public class ThreeDDesignController {
         }
     }
 
-    // Modify your initialize method to call these updated methods
     private void initializeRoom() {
         create3DGrid();  // Create the 3D grid on the floor
 
@@ -348,13 +347,12 @@ public class ThreeDDesignController {
         enable3DMovement(furniture);  // Enable keyboard movement for the furniture
     }
 
-
     public void initialize3D(String shapeType, double width, double height, double width1, double height1, double width2, double height2, Color wallColor) {
         roomGroup = new Group();
 
         // Setup camera
         PerspectiveCamera camera = new PerspectiveCamera(true);
-        camera.setTranslateZ(-800); // Move the camera back
+        camera.setTranslateZ(-800);
         camera.setNearClip(0.1);
         camera.setFarClip(1000);
 
@@ -365,7 +363,7 @@ public class ThreeDDesignController {
         subScene.setFill(Color.WHITE);
         subScene.setCamera(camera);
 
-        // Add textures
+        // Add textures to the walls
         PhongMaterial wallMaterial = new PhongMaterial();
         wallMaterial.setDiffuseColor(wallColor);
 
@@ -395,7 +393,7 @@ public class ThreeDDesignController {
             innerVerticalWall.setMaterial(wallMaterial);
 
             // floor sections for L-shape
-            PhongMaterial floorMaterial = new PhongMaterial(Color.DARKGRAY);
+            PhongMaterial floorMaterial = new PhongMaterial(Color.DARKGRAY);// floor color
 
             Box floor1 = new Box(width, 15, height2);
             floor1.setTranslateX(width / 2);
@@ -431,7 +429,7 @@ public class ThreeDDesignController {
             rightWall.setMaterial(wallMaterial);
 
             // single floor for rectangle
-            PhongMaterial floorMaterial = new PhongMaterial(Color.DARKGRAY);
+            PhongMaterial floorMaterial = new PhongMaterial(Color.DARKGRAY);//floor color
 
             Box floor = new Box(width, 15, height);
             floor.setTranslateX(width / 2);
@@ -442,12 +440,12 @@ public class ThreeDDesignController {
             roomGroup.getChildren().addAll(backWall, leftWall, rightWall, floor);
         }
 
-        // Rotate
+        //Rotate
         rotateX = new Rotate(0, Rotate.X_AXIS);
         rotateY = new Rotate(0, Rotate.Y_AXIS);
         roomGroup.getTransforms().addAll(rotateX, rotateY);
 
-        // Mouse controls
+        //Mouse controls
         subScene.setOnMousePressed(event -> {
             roomGroup.setUserData(new double[]{event.getSceneX(), event.getSceneY()});
         });
@@ -466,7 +464,7 @@ public class ThreeDDesignController {
             camera.setTranslateZ(camera.getTranslateZ() + zoomFactor);
         });
 
-        // Add keyboard controls for camera movement
+        //keyboard controls for camera movement
         subScene.setOnKeyPressed(event -> {
             switch (event.getCode()) {
                 case NUMPAD8:
@@ -501,7 +499,7 @@ public class ThreeDDesignController {
         File file = fileChooser.showSaveDialog(designPane.getScene().getWindow());
         if (file != null) {
             try {
-                // Get the SubScene from your designPane
+                //Get the SubScene from designPane
                 SubScene subScene = (SubScene) designPane.getChildren().get(0);
 
                 // Create a snapshot of the SubScene

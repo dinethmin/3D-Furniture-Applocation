@@ -132,7 +132,7 @@ public class DesignController {
 
             GraphicsContext gc = designCanvas.getGraphicsContext2D();
 
-            // Clear the canvas before drawing
+            // Clear the canvas
             gc.clearRect(0, 0, designCanvas.getWidth(), designCanvas.getHeight());
 
             // Set wall color

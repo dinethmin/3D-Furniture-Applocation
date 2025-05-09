@@ -17,11 +17,9 @@ public class CartController {
         this.primaryStage = primaryStage;
     }
 
-
     @FXML
     private void handlecart(ActionEvent event) throws IOException {
-
-            // Get the current stage (login screen) and load the design screen
+            // load the design screen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/design.fxml"));
             Parent root = loader.load();
 
